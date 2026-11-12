@@ -105,6 +105,7 @@ Not in this plugin: building, testing, reviewing, bug fixing, pull requests and 
 | `/implement` stops on a criterion it cannot check | The criterion is not provable. Rewrite it on the ticket as something a command or a driven run can prove. |
 | The skills say the tracker was not provided | Run `/setup-intent`. |
 | The chat is getting long before `/to-tickets` | Compact at the nearest boundary, not mid-interview. See [`references/PHASE-BOUNDARIES.md`](references/PHASE-BOUNDARIES.md). |
+| "This project requires a stage before files change" while writing the glossary, a decision record or `docs/agents/` | The project's `exempt` list predates this plugin. The owner adds the planning globs listed in [`/setup-intent`](../setup-intent/SKILL.md) step 4 to `.governance/config.json`. |
 | `gh` commands fail | The owner runs `gh auth login` on that machine. |
 
 ## Reply

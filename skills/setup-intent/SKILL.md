@@ -26,6 +26,7 @@ Look at the current repo to understand its starting state. Read whatever exists;
 - `docs/adr/` and any `src/*/docs/adr/` directories
 - `docs/agents/`: does this skill's prior output already exist?
 - `.scratch/`: a sign that a local-markdown issue tracker convention is already in use
+- `.governance/config.json`: the project has adopted the `governance` plugin. Read its `require_stage` and `exempt` values; step 4 depends on them.
 - Is the `triage` skill installed? (a `triage` skill folder alongside this one, or `triage` in your available skills.) This decides whether Section B runs at all.
 - Monorepo signals: a `pnpm-workspace.yaml`, a `workspaces` field in `package.json`, or a populated `packages/*` with its own `src/`. These are present only in a genuinely large multi-package repo; their absence means single-context, which is almost every repo.
 
@@ -71,6 +72,12 @@ Show the user a draft of:
 Let them edit before writing.
 
 ### 4. Write
+
+**In a governed project, clear the way first.** When `.governance/config.json` sets `require_stage` to true, a hook blocks your edits to any file outside its `exempt` globs, and you cannot edit that config yourself. Before writing anything:
+
+- Check `exempt` for these globs: `GLOSSARY.md`, `GLOSSARY-MAP.md`, `**/GLOSSARY.md`, `docs/adr/**`, `**/docs/adr/**`, `docs/agents/**`, `.scratch/**`. Projects adopted with a recent `governance` have them already.
+- If any are missing, show the owner the exact list to add to `exempt` in `.governance/config.json`, and wait until they have added it.
+- `AGENTS.md` and `CLAUDE.md` are not exempt, on purpose. Give the owner the `## Agent skills` block to paste in themselves, and write only the `docs/agents/` files.
 
 **Pick the file to edit:**
 

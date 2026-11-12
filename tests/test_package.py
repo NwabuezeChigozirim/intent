@@ -79,6 +79,12 @@ class PackageTests(unittest.TestCase):
         missing = [p.name for p in skill_dirs() if f"](../{p.name}/SKILL.md)" not in text and p.name not in ("intent-help", "grilling")]
         self.assertEqual(missing, [])
 
+    def test_setup_handles_a_governed_project(self) -> None:
+        text = (SKILLS / "setup-intent" / "SKILL.md").read_text(encoding="utf-8")
+        for glob in ("GLOSSARY.md", "**/GLOSSARY.md", "docs/adr/**", "docs/agents/**", ".scratch/**"):
+            self.assertIn(f"`{glob}`", text)
+        self.assertIn("you cannot edit that config yourself", text)
+
     def test_building_is_handed_to_governance(self) -> None:
         text = (SKILLS / "implement" / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("`govern` skill", text)
