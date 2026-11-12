@@ -73,7 +73,7 @@ python <governance checkout>/scripts/adopt.py --repo .
 If it prints `NOT DONE`, install the tools it names, then run `python tools/governance/rulekit baseline`.
 
 2. Commit the result to the main branch and make the `gate` job a required check on GitHub.
-3. In Cursor, run `/setup-intent` and accept the defaults (GitHub issues, five triage labels, one glossary).
+3. In Cursor, run `/setup-intent` and accept the defaults (GitHub issues, five triage labels, one glossary). It will hand you a short `## Agent skills` block to paste into `AGENTS.md` yourself, because the hook does not let the agent edit that file outside a stage.
 4. If the project has an app to drive, run `/create-verification-skill` so agents can prove behavior in the real app.
 
 ## The main flow: idea to merged code
@@ -202,6 +202,7 @@ You want users to archive several notes at once.
 | "This project requires a stage before files change" | Working as designed. The agent writes the contract; you freeze it. |
 | The agent asks you to run a command with `--owner-approved` | Working as designed. Read the contract, then run it. |
 | The CI `gate` job fails | Something changed after the stage closed. Rerun checks, close again, commit the new receipt. |
+| The hook blocks the agent from writing `GLOSSARY.md`, `docs/adr/` or `docs/agents/` | The project was adopted before governance exempted planning documents. Add `GLOSSARY.md`, `**/GLOSSARY.md`, `docs/adr/**`, `**/docs/adr/**`, `docs/agents/**` and `.scratch/**` to `exempt` in `.governance/config.json`. |
 | "The tracker was not provided" | Run `/setup-intent`. |
 | `gh` commands fail | Run `gh auth login`. |
 
@@ -212,3 +213,12 @@ You want users to archive several notes at once.
 - Receipts can be forged by someone determined; the gate is a safeguard against mistakes, not against an adversary.
 - `/implement-spec` batching the freeze commands across parallel tickets is untested.
 - `wizard` needs bash: Linux, macOS, or Git Bash on Windows.
+
+## Running them in any order
+
+| Order | Works | Notes |
+|---|---|---|
+| intent, then governance | Yes | The main flow. |
+| governance alone | Yes | `/govern <task>` needs no spec or ticket. |
+| governance, then intent | Yes | A finding from `/garden` or `/improve-codebase-architecture` becomes an idea for `/grill-with-docs`. |
+| intent alone | Planning only | `/implement` stops when governance is not installed. |
