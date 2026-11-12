@@ -1,4 +1,4 @@
-# planning
+# intent
 
 A Cursor plugin that gets the agent to understand what you want before it builds.
 It interviews you, keeps a shared vocabulary, writes one spec, and splits it into
@@ -13,7 +13,7 @@ from the earlier `agent-skills` suite: `need-first` and `systems-design`.
 
 | Layer | Question | Plugin |
 |---|---|---|
-| Intent | Does the agent know what you want? | `planning` |
+| Intent | Does the agent know what you want? | `intent` |
 | Codebase | Is bad code hard to write? | `governance` |
 | Verification | Did the agent prove it works? | `governance` |
 
@@ -34,7 +34,7 @@ run of the app can prove true or false.
    `/implement-spec` to run the whole ticket graph with parallel subagents.
 
 For work too big or too unclear for one session, start with `/wayfinder` instead of
-step 1. If you forget which skill fits, ask `/plan-help`.
+step 1. If you forget which skill fits, ask `/intent-help`.
 
 ## Skills
 
@@ -52,8 +52,8 @@ step 1. If you forget which skill fits, ask `/plan-help`.
 | `handoff` | yes | Write a handoff file for another session |
 | `to-questionnaire` | yes | Write questions for someone else to answer |
 | `wait-what` | yes | Re-explain the last message in plain words |
-| `setup-planning` | yes | Once per project: tracker, labels, doc layout |
-| `plan-help` | yes | Which skill fits this situation |
+| `setup-intent` | yes | Once per project: tracker, labels, doc layout |
+| `intent-help` | yes | Which skill fits this situation |
 | `grilling` | agent | The interview itself |
 | `domain-modeling` | agent | Glossary and decision records |
 | `need-first` | agent | Request versus the job behind it |
@@ -69,7 +69,7 @@ step 1. If you forget which skill fits, ask `/plan-help`.
   `tdd` and `code-review` skills.
 - `grill-with-docs`, `to-spec` and `to-tickets` apply `need-first`.
 - `to-tickets` requires provable acceptance criteria.
-- The setup skill is `setup-planning`, the router is `plan-help`, and GitLab support
+- The setup skill is `setup-intent`, the router is `intent-help`, and GitLab support
   is removed.
 - "Call the Skill tool" is reworded to "load and follow the skill", since Cursor
   has no Skill tool.
@@ -84,7 +84,7 @@ Install `governance` first. Then:
 python scripts/install.py
 ```
 
-Restart Cursor. In each project, run `/setup-planning` once and choose GitHub issues.
+Restart Cursor. In each project, run `/setup-intent` once and choose GitHub issues.
 The GitHub tracker uses the `gh` command, which must be installed and signed in.
 
 ## Verify

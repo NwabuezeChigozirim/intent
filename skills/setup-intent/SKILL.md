@@ -1,10 +1,10 @@
 ---
-name: setup-planning
+name: setup-intent
 description: "Configure this repo for the planning skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other planning skills."
 disable-model-invocation: true
 ---
 
-# Setup Planning
+# Setup Intent
 
 Scaffold the per-repo configuration that the planning skills assume:
 

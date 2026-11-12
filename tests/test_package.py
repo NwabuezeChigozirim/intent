@@ -84,7 +84,7 @@ class InstallTests(unittest.TestCase):
     def setUp(self) -> None:
         self.home = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, self.home, True)
-        self.target = self.home / "plugins" / "local" / "planning"
+        self.target = self.home / "plugins" / "local" / "intent"
 
     def install(self) -> subprocess.CompletedProcess[str]:
         return subprocess.run([sys.executable, "-B", str(PACKAGE / "scripts" / "install.py"), "--target", str(self.target)],

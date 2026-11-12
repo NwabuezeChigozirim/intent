@@ -1,10 +1,10 @@
 ---
-name: plan-help
+name: intent-help
 description: Ask which skill or flow fits your situation. A router over the skills in this repo.
 disable-model-invocation: true
 ---
 
-# Plan Help
+# Intent Help
 
 You don't remember every skill, so ask.
 
@@ -92,6 +92,6 @@ Off the main flow entirely.
 
 ## Precondition
 
-**`/setup-planning`**: run before your first planning flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.
+**`/setup-intent`**: run before your first planning flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.
 
 The **`governance`** plugin must be installed for `/implement` and `/implement-spec`. For how its skills work, ask **`/govern-help`**.

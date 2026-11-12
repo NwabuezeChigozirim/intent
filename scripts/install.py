@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Install this plugin for Cursor as a local plugin.
 
-Copies the plugin into ~/.cursor/plugins/local/planning. Run it again after pulling
+Copies the plugin into ~/.cursor/plugins/local/intent. Run it again after pulling
 changes. Standard library only; Linux, macOS and Windows.
 """
 
@@ -13,7 +13,7 @@ from pathlib import Path
 import shutil
 
 SOURCE = Path(__file__).resolve().parents[1]
-NAME = "planning"
+NAME = "intent"
 PARTS = (".cursor-plugin", "skills", "README.md", "LICENSE", "THIRD_PARTY_LICENSE-mattpocock-skills")
 SKIP = shutil.ignore_patterns("__pycache__", "*.pyc", "node_modules")
 
@@ -45,7 +45,7 @@ def main() -> int:
     print(f"installed: {target}")
     if not (target.parent / "governance").exists():
         print("note: the governance plugin is not installed beside it; /implement needs it.")
-    print("Restart Cursor, run /setup-planning once in each project, then start with /grill-with-docs.")
+    print("Restart Cursor, run /setup-intent once in each project, then start with /grill-with-docs.")
     return 0
 
 
