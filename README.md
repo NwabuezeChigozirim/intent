@@ -61,6 +61,7 @@ step 1. If you forget which skill fits, ask `/intent-help`.
 | `codebase-design` | agent | Vocabulary for deep modules |
 | `research` | agent | Background research into a cited file |
 | `prototype` | agent | Throwaway code that answers one design question |
+| `wizard` | agent | A step-by-step bash script for setup only a human can do (needs bash: Linux, macOS or Git Bash) |
 | `writing-for-agents` | agent | How to write skills and agent docs |
 
 ## Changes from the upstream skills
@@ -74,7 +75,7 @@ step 1. If you forget which skill fits, ask `/intent-help`.
 - "Call the Skill tool" is reworded to "load and follow the skill", since Cursor
   has no Skill tool.
 - Not included: `tdd`, `code-review`, `retro`, `diagnosing-bugs`, `pr` and `teach`
-  (governance covers them), and `wizard` (it generates bash scripts).
+  (governance covers them).
 
 ## Install
 

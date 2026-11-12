@@ -21,7 +21,7 @@ LINK = re.compile(r"\]\((?!https?:|#|mailto:)([^)#\s]+)(?:#[^)]*)?\)")
 EXTERNAL = {"govern", "correct", "govern-help", "clear", "compact"}
 # Backticked paths that look like slash commands.
 PATHS = {"tmp", "settings"}
-DROPPED = ("ask-matt", "setup-matt-pocock-skills", "Skill tool", "code-review", "/tdd", "/retro", "diagnosing-bugs", "/wizard", "/teach")
+DROPPED = ("ask-matt", "setup-matt-pocock-skills", "Skill tool", "code-review", "/tdd", "/retro", "diagnosing-bugs", "/teach")
 
 
 def skill_dirs() -> list[Path]:
