@@ -74,6 +74,11 @@ class PackageTests(unittest.TestCase):
             for word in DROPPED:
                 self.assertNotIn(word, text, f"{path.relative_to(PACKAGE).as_posix()}: {word}")
 
+    def test_help_lists_every_skill(self) -> None:
+        text = (SKILLS / "intent-help" / "SKILL.md").read_text(encoding="utf-8")
+        missing = [p.name for p in skill_dirs() if f"](../{p.name}/SKILL.md)" not in text and p.name not in ("intent-help", "grilling")]
+        self.assertEqual(missing, [])
+
     def test_building_is_handed_to_governance(self) -> None:
         text = (SKILLS / "implement" / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("`govern` skill", text)

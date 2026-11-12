@@ -14,7 +14,7 @@ import shutil
 
 SOURCE = Path(__file__).resolve().parents[1]
 NAME = "intent"
-PARTS = (".cursor-plugin", "skills", "README.md", "LICENSE", "THIRD_PARTY_LICENSE-mattpocock-skills")
+PARTS = (".cursor-plugin", "skills", "docs", "README.md", "LICENSE", "THIRD_PARTY_LICENSE-mattpocock-skills")
 SKIP = shutil.ignore_patterns("__pycache__", "*.pyc", "node_modules")
 
 
