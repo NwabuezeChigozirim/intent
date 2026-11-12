@@ -36,6 +36,9 @@ run of the app can prove true or false.
 For work too big or too unclear for one session, start with `/wayfinder` instead of
 step 1. If you forget which skill fits, ask `/intent-help`.
 
+[docs/PLAYBOOK.md](docs/PLAYBOOK.md) is the day-to-day guide to using this plugin and
+`governance` together: setup, the flow, and which command to type for which goal.
+
 ## Skills
 
 | Skill | You type it | What it does |
@@ -53,7 +56,7 @@ step 1. If you forget which skill fits, ask `/intent-help`.
 | `to-questionnaire` | yes | Write questions for someone else to answer |
 | `wait-what` | yes | Re-explain the last message in plain words |
 | `setup-intent` | yes | Once per project: tracker, labels, doc layout |
-| `intent-help` | yes | Which skill fits this situation |
+| `intent-help` | yes | Answers questions about the plugin and hands you a prompt to send |
 | `grilling` | agent | The interview itself |
 | `domain-modeling` | agent | Glossary and decision records |
 | `need-first` | agent | Request versus the job behind it |
