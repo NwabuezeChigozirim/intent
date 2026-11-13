@@ -26,7 +26,8 @@ Swap in the real feature, paths and ticket numbers. Informal wording works.
 
 ## Big or unclear work
 
-- `/wayfinder <loose idea>` to chart the map.
+- `/grill-with-docs i want <product>` first, when the whole thing fits one sitting, however new it is.
+- `/wayfinder <loose idea>` to chart the map, when it does not.
 - `/wayfinder <map issue number>` to resolve the next decision.
 
 ## Design
