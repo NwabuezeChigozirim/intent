@@ -64,15 +64,8 @@ python scripts/install.py
 
 ### In each project
 
-1. Adopt governance (rules, strict linters, CI gate):
-
-```bash
-python <governance checkout>/scripts/adopt.py --repo .
-```
-
-If it prints `NOT DONE`, install the tools it names, then run `python tools/governance/rulekit baseline`.
-
-2. Commit the result to the main branch and make the `gate` job a required check on GitHub.
+1. In Cursor, with the project open, type `/adopt`. It sets up the rules, strict linters and CI gate, installs any linter it needs, commits the result to the main branch and makes the `gate` job a required check. It tells you if GitHub would not let it do the last part.
+2. If the project was empty, type `/adopt` again once it has its first source files. That adds the strict rules for the language.
 3. In Cursor, run `/setup-intent` and accept the defaults (GitHub issues, five triage labels, one glossary). It will hand you a short `## Agent skills` block to paste into `AGENTS.md` yourself, because the hook does not let the agent edit that file outside a stage.
 4. If the project has an app to drive, run `/create-verification-skill` so agents can prove behavior in the real app.
 
@@ -203,6 +196,7 @@ You want users to archive several notes at once.
 | The agent asks you to run a command with `--owner-approved` | Working as designed. Read the contract, then run it. |
 | The CI `gate` job fails | Something changed after the stage closed. Rerun checks, close again, commit the new receipt. |
 | The hook blocks the agent from writing `GLOSSARY.md`, `docs/adr/` or `docs/agents/` | The project was adopted before governance exempted planning documents. Add `GLOSSARY.md`, `**/GLOSSARY.md`, `docs/adr/**`, `**/docs/adr/**`, `docs/agents/**` and `.scratch/**` to `exempt` in `.governance/config.json`. |
+| An agent asks you to run `adopt.py` in a terminal | Type `/adopt` instead. |
 | "The tracker was not provided" | Run `/setup-intent`. |
 | `gh` commands fail | Run `gh auth login`. |
 
