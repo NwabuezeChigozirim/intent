@@ -127,6 +127,13 @@ class InstallTests(unittest.TestCase):
         self.assertNotIn("two skills, `grilling` and `domain-modeling`", wayfinder)
         self.assertEqual(wayfinder.count("`grilling`, `domain-modeling` and `need-first`"), 3)
 
+    def test_tickets_account_for_every_story_before_publishing(self) -> None:
+        text = (SKILLS / "to-tickets" / "SKILL.md").read_text(encoding="utf-8")
+        for needed in ("### 4. Check coverage", "List every story number in order", "## Covers",
+                       "Do not publish while a story is uncovered"):
+            self.assertIn(needed, text)
+        self.assertLess(text.index("### 4. Check coverage"), text.index("### 6. Publish"))
+
 
 if __name__ == "__main__":
     unittest.main()
