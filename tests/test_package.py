@@ -120,6 +120,13 @@ class InstallTests(unittest.TestCase):
         self.assertNotEqual(self.install().returncode, 0)
         self.assertTrue((self.target / "notes.txt").is_file())
 
+    def test_the_interview_asks_through_the_question_tool_and_tests_each_need(self) -> None:
+        grilling = (SKILLS / "grilling" / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("If you have a tool for asking the user questions, use it for every round", grilling)
+        wayfinder = (SKILLS / "wayfinder" / "SKILL.md").read_text(encoding="utf-8")
+        self.assertNotIn("two skills, `grilling` and `domain-modeling`", wayfinder)
+        self.assertEqual(wayfinder.count("`grilling`, `domain-modeling` and `need-first`"), 3)
+
 
 if __name__ == "__main__":
     unittest.main()

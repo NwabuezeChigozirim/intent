@@ -7,7 +7,9 @@ Interview the user relentlessly until you reach a shared understanding. Map this
 
 Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.
 
-Format a round like so:
+**If you have a tool for asking the user questions, use it for every round**, and print nothing in its place. Put each frontier question in the tool with your recommended answer as the first option, marked as recommended. Where the decision has real alternatives, offer them as options, each with what it gives and what it costs; do not reduce a decision to yes or no on your own proposal when another answer is plausible. If the tool takes fewer questions than the frontier holds, send the round as consecutive calls.
+
+With no such tool, format a round like so:
 
 ```
 ❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
@@ -21,7 +23,7 @@ Format a round like so:
 ➡️ <your recommended answer>
 ```
 
-Word each question so "yes" accepts your recommended answer.
+Word each question so "yes", or picking the first option, accepts your recommended answer.
 
 Each round the user answers reshapes the tree: settled decisions push the frontier outward and unblock questions that depended on them. Recompute the frontier and ask the next round. A question whose answer depends on another question still open in this round belongs to a _later_ round, not this one.
 

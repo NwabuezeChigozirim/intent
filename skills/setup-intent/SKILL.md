@@ -77,7 +77,7 @@ Let them edit before writing.
 
 - Check `exempt` for these globs: `GLOSSARY.md`, `GLOSSARY-MAP.md`, `**/GLOSSARY.md`, `docs/adr/**`, `**/docs/adr/**`, `docs/agents/**`, `.scratch/**`. Projects adopted with a recent `governance` have them already.
 - If any are missing, show the owner the exact list to add to `exempt` in `.governance/config.json`, and wait until they have added it.
-- `AGENTS.md` and `CLAUDE.md` are not exempt, on purpose. Give the owner the `## Agent skills` block to paste in themselves, and write only the `docs/agents/` files.
+- `AGENTS.md` and `CLAUDE.md` are not exempt, on purpose. Give the owner the `## Agent skills` block to paste in themselves, and write only the `docs/agents/` files. Ask them to commit that paste straight away: until it is committed, governance's end-of-turn check reports the file as changed without a stage.
 
 **Pick the file to edit:**
 

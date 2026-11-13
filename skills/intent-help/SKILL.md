@@ -58,7 +58,7 @@ Questions about stages, checks, receipts or rules belong to the governance plugi
 
 ## Plan something too big for one session
 
-[`/wayfinder`](../wayfinder/SKILL.md) is for a greenfield project or a feature whose route is not visible yet. The first session charts a map issue and its decision tickets. Each later session resolves one ticket. It produces decisions, not code. When no tickets remain, go to `/to-spec`.
+[`/wayfinder`](../wayfinder/SKILL.md) is for work whose decisions will not fit one conversation, or whose route is not visible yet. Size and fog decide this, not the word the user chose: a new product one person will use, with a handful of open decisions, is still a `/grill-with-docs` session. Recommend `/wayfinder` only when the user expects many sessions, several people must answer, or research has to finish before most questions can be asked. When unsure, start with `/grill-with-docs`; it can hand over to `/wayfinder` if the interview outgrows the session. The first session charts a map issue and its decision tickets. Each later session resolves one ticket. It produces decisions, not code. When no tickets remain, go to `/to-spec`.
 
 Do not use it for a well-scoped feature: it is slower than `/grill-with-docs`.
 
