@@ -108,6 +108,7 @@ Two modes. Either way, **never resolve more than one ticket per session**, with 
 
 User invokes with a loose idea.
 
+0. **Know the last ticket.** When the destination is a spec or a build for something with no code yet, the map is not clear until the technology stack is decided. Chart a ticket for it, blocked by the decisions that constrain it, and resolve it by loading and following the `stack` skill.
 1. **Name the destination.** Load and follow three skills, `grilling`, `domain-modeling` and `need-first`, to pin down what this map is finding its way to: the spec, decision, or change. The destination fixes the scope, so it's settled first.
 2. **Map the frontier.** Grill again, **breadth-first** this time: fan out across the whole space rather than deep on any one thread, surfacing the open decisions and the first steps takeable now. **If this surfaces no fog** (the way to the destination is already clear, the whole journey small enough for one session), you don't need a map. Stop and ask the user how they'd like to proceed.
 3. **Create the map** (label `wayfinder:map`): Destination and Notes filled in, Decisions-so-far empty, the fog sketched into **Not yet specified**.

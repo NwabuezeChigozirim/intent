@@ -134,6 +134,17 @@ class InstallTests(unittest.TestCase):
             self.assertIn(needed, text)
         self.assertLess(text.index("### 4. Check coverage"), text.index("### 6. Publish"))
 
+    def test_a_new_product_gets_a_stack_before_a_spec(self) -> None:
+        stack = (SKILLS / "stack" / "SKILL.md").read_text(encoding="utf-8")
+        self.assertNotIn("disable-model-invocation", stack.split("\n---\n", 1)[0])
+        for needed in ("## 2. Recommend one stack", "## 3. Show the alternatives",
+                       "## 4. List what the owner must set up before building", "Technology stack"):
+            self.assertIn(needed, stack)
+        for name, needed in (("grilling", "`stack` skill"), ("wayfinder", "`stack` skill"),
+                             ("to-spec", "## Before Building"), ("to-spec", "Technology stack"),
+                             ("to-tickets", "Before Building")):
+            self.assertIn(needed, (SKILLS / name / "SKILL.md").read_text(encoding="utf-8"), name)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -12,11 +12,13 @@ The issue tracker and triage label vocabulary should have been provided to you. 
 
 1. Explore the repo to understand the current state of the codebase, if you haven't already. Use the project's domain glossary vocabulary throughout the spec, and respect any ADRs in the area you're touching.
 
-2. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
+2. **For something with no code yet, the stack comes first.** If the repo has no application code for the part this spec describes, look for a decision record titled Technology stack under `docs/adr/`. If there is none, stop: tell the user the stack has not been chosen, and load and follow the `stack` skill before going on. This is the one place this skill may ask the user for a decision. When the record exists, carry its stack into Implementation Decisions and its set-up list into Before Building.
+
+3. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
 
 Check with the user that these seams match their expectations.
 
-3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
+4. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
 
 <spec-template>
 
@@ -46,6 +48,7 @@ This list of user stories should be extremely extensive and cover all aspects of
 
 A list of implementation decisions that were made. This can include:
 
+- The technology stack, for something with no code yet, with a link to its decision record
 - The modules that will be built/modified
 - The interfaces of those modules that will be modified
 - Technical clarifications from the developer
@@ -57,6 +60,10 @@ A list of implementation decisions that were made. This can include:
 Do NOT include specific file paths or code snippets. They may end up being outdated very quickly.
 
 Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it within the relevant decision and note briefly that it came from a prototype. Trim to the decision-rich parts, not a working demo, just the important bits.
+
+## Before Building
+
+What the owner must set up before the first ticket can be built or proven, and that only they can do: accounts, keys and tokens, servers and domains, settings in outside services, access to request. For each: what it is, where to do it, and what it blocks. Omit this section when there is nothing.
 
 ## Testing Decisions
 
