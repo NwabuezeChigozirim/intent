@@ -1,7 +1,7 @@
 {
 	"name": "intent",
 	"displayName": "intent",
-	"version": "0.1.0-alpha.7",
+	"version": "0.1.0-alpha.8",
 	"description": "Get the agent to understand what you want before it builds: interview, shared language, spec and tickets, handed to the governance plugin to build and prove.",
 	"license": "MIT",
 	"keywords": [

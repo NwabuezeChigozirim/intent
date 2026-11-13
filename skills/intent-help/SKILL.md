@@ -42,8 +42,9 @@ Check the state that changes the answer, and mention it only when it does:
 Keep these three in one chat, without clearing, so each builds on the last:
 
 1. [`/grill-with-docs`](../grill-with-docs/SKILL.md): the agent asks every open question in rounds, each with a recommended answer worded so "yes" accepts it. It looks up facts itself and asks the user only for decisions. It writes settled terms to `GLOSSARY.md` and applies [`need-first`](../need-first/SKILL.md).
-2. [`/to-spec`](../to-spec/SKILL.md): no more questions; it writes the spec from the conversation and publishes it as an issue.
-3. [`/to-tickets`](../to-tickets/SKILL.md): splits the spec into vertical slices with blocking links. The user approves the breakdown before anything is published.
+2. For something with no code yet, the interview ends by loading [`stack`](../stack/SKILL.md): a recommended technology stack with reasons and alternatives, and the list of what the user must set up before building. `/to-spec` stops without it.
+3. [`/to-spec`](../to-spec/SKILL.md): no more questions; it writes the spec from the conversation and publishes it as an issue.
+4. [`/to-tickets`](../to-tickets/SKILL.md): splits the spec into vertical slices with blocking links. The user approves the breakdown before anything is published.
 
 A question paper cannot settle (does this state model feel right, what should this screen look like) takes a detour through [`prototype`](../prototype/SKILL.md). A fact that needs reading goes to [`research`](../research/SKILL.md) in the background.
 
@@ -78,6 +79,7 @@ Read the skill before you recommend it, and give one example prompt.
 | Build a whole spec in parallel | [`/implement-spec`](../implement-spec/SKILL.md) |
 | Plan a large, unclear effort across sessions | [`/wayfinder`](../wayfinder/SKILL.md) |
 | Sort incoming bug reports and requests | [`/triage`](../triage/SKILL.md) |
+| Choose what to build a new product with, and learn what to set up first | [`/stack`](../stack/SKILL.md) |
 | Decide whether a queue, cache or event system is justified | [`/systems-design`](../systems-design/SKILL.md) |
 | Find modules worth restructuring | [`/improve-codebase-architecture`](../improve-codebase-architecture/SKILL.md) |
 | Design a module's interface | [`/codebase-design`](../codebase-design/SKILL.md) |

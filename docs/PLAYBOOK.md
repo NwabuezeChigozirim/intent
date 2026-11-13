@@ -74,6 +74,7 @@ python scripts/install.py
 | Step | You type | What happens | What you do |
 |---|---|---|---|
 | 1 | `/grill-with-docs <idea>` | Rounds of questions, each with a recommended answer. Glossary updated as terms settle. | Answer. "Yes" accepts the recommendation. |
+| 1b | (nothing; or `/stack`) | For a new product, the interview ends with a recommended technology stack, the alternatives, and the list of what you must set up first. | Accept it, pick an alternative, or change a part. |
 | 2 | `/to-spec` | Spec written from the conversation and published as an issue. | Confirm the test seams it proposes. |
 | 3 | `/to-tickets` | Spec split into tickets with blocking links. | Approve or adjust the breakdown. |
 | 4 | `/implement <ticket>` in a new chat | Agent drafts the stage contract from the ticket. | Read the contract. Type `/approve`. |
@@ -97,6 +98,7 @@ For a whole spec at once, replace step 4 with `/implement-spec <spec issue>`. It
 | Settle a confusing word, or record a big decision | `/domain-modeling <the word or decision>` |
 | Get a fact researched from primary sources | `/research <question>` |
 | See an idea working before committing to it | `/prototype <question>` |
+| Choose what to build a new product with | `/stack` |
 | Decide if I need a queue, cache or events | `/systems-design <capability and its load>` |
 | Plan a project too big or unclear for one chat | `/wayfinder <idea>`, then `/wayfinder <map issue>` each session |
 | Ask someone else for the answers | `/to-questionnaire <who and what>` |
@@ -147,7 +149,7 @@ For a whole spec at once, replace step 4 with `/implement-spec <spec issue>`. It
 
 You do not type these. The agent loads them when the task fits:
 
-- From intent: `grilling`, `domain-modeling`, `need-first`, `systems-design`, `codebase-design`, `research`, `prototype`, `wizard`, `writing-for-agents`.
+- From intent: `stack`, `grilling`, `domain-modeling`, `need-first`, `systems-design`, `codebase-design`, `research`, `prototype`, `wizard`, `writing-for-agents`.
 - From governance: the `principle-*` skills, `architect`, `tdd`, `unslop`, `no-comments`, `technical-writing` and the verification skills, as `/govern`'s steps call for them.
 
 And these run with no agent involved at all:
