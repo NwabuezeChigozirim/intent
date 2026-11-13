@@ -32,7 +32,7 @@ So a criterion has to be something a command or a driven run of the app can prov
 | Frontier | The tickets (or questions) that can start right now. |
 | Stage | One ticket being built under governance, from contract to receipt. |
 | Contract | The stage's written intent, acceptance list and check commands. |
-| Freeze | Your one approval per stage. You run the command; the agent cannot. |
+| Freeze | Your one approval per stage. You type `/approve`; the agent cannot approve for you. |
 | Receipt | The record that every check passed on the exact final code. |
 | Rule | An enforced check on the code (a banned pattern, a file length limit, a linter). |
 | Baseline | The old violations a rule tolerates. They may shrink, never grow. |
@@ -76,14 +76,14 @@ python scripts/install.py
 | 1 | `/grill-with-docs <idea>` | Rounds of questions, each with a recommended answer. Glossary updated as terms settle. | Answer. "Yes" accepts the recommendation. |
 | 2 | `/to-spec` | Spec written from the conversation and published as an issue. | Confirm the test seams it proposes. |
 | 3 | `/to-tickets` | Spec split into tickets with blocking links. | Approve or adjust the breakdown. |
-| 4 | `/implement <ticket>` in a new chat | Agent drafts the stage contract from the ticket. | Read the contract. Run the freeze command it gives you. |
+| 4 | `/implement <ticket>` in a new chat | Agent drafts the stage contract from the ticket. | Read the contract. Type `/approve`. |
 | 5 | (nothing) | Agent builds, runs the checks, gets an independent verdict, closes the stage, opens the pull request. | Nothing, unless it stops and says why. |
 | 6 | Merge | The CI gate confirms a receipt matches the code. | Merge, or let it merge when you trust it. |
 | 7 | `/correct` when you had to correct the agent | The correction becomes an enforced rule. | Approve the rule. |
 
 Keep steps 1 to 3 in one chat. Start a new chat for each ticket in step 4.
 
-For a whole spec at once, replace step 4 with `/implement-spec <spec issue>`. It runs the tickets in parallel and gives you the freeze commands in batches.
+For a whole spec at once, replace step 4 with `/implement-spec <spec issue>`. It runs the tickets in parallel and gives you the freeze commands in batches to run in a terminal; `/approve` does not cover parallel tickets yet.
 
 ## When I want to..., I type...
 
@@ -161,11 +161,11 @@ And these run with no agent involved at all:
 |---|---|
 | Answering the interview | Looking up facts in the code or docs |
 | Approving the ticket breakdown | Writing the spec and tickets |
-| Freezing each stage contract | Building, testing, reviewing |
+| Approving each stage contract (`/approve`) | Building, testing, reviewing |
 | Approving a new rule | Enforcing existing rules |
 | Merging (until you choose otherwise) | Closing the stage and writing the receipt |
 
-Your two real decisions per ticket are the interview answers and the freeze. Everything else is checkable after the fact.
+Your two real decisions per ticket are the interview answers and the approval. Everything else is checkable after the fact.
 
 ## A worked example
 
@@ -180,7 +180,7 @@ You want users to archive several notes at once.
    - Shared notes are skipped with a message (blocked by the first)
 
    Each has criteria such as "selecting three notes and choosing Archive moves all three to the archive".
-4. New chat: `/implement 41`. The agent shows the contract: the intent, the criterion, and two checks (a test command, a driven run of the app). You run the freeze command.
+4. New chat: `/implement 41`. The agent shows the contract: the intent, the criterion, and two checks (a test command, a driven run of the app). You type `/approve`.
 5. The agent builds, proves, closes, and opens the pull request with the receipt.
 6. You notice it left a `// TODO: handle errors` comment. You say so, then `/correct`. A rule now blocks that pattern for every future agent.
 
@@ -192,8 +192,9 @@ You want users to archive several notes at once.
 | The agent starts coding during the interview | "Do not act until I confirm we have a shared understanding." |
 | A ticket covers only one layer | Reject it in `/to-tickets`. Each ticket must be showable working on its own. |
 | `/implement` stops on a criterion it cannot check | Rewrite the criterion on the ticket as something provable. |
-| "This project requires a stage before files change" | Working as designed. The agent writes the contract; you freeze it. |
-| The agent asks you to run a command with `--owner-approved` | Working as designed. Read the contract, then run it. |
+| "This project requires a stage before files change" | Working as designed. The agent writes the contract; you type `/approve`. |
+| The agent asks you to type `/approve` | Working as designed. Read the contract, then type it. |
+| After `/approve`, the agent says the hook saw no approval | Run the `--owner-approved` command it gives you in a terminal, and report it: Cursor did not pass your message to the hook. |
 | The CI `gate` job fails | Something changed after the stage closed. Rerun checks, close again, commit the new receipt. |
 | The hook blocks the agent from writing `GLOSSARY.md`, `docs/adr/` or `docs/agents/` | The project was adopted before governance exempted planning documents. Add `GLOSSARY.md`, `**/GLOSSARY.md`, `docs/adr/**`, `**/docs/adr/**`, `docs/agents/**` and `.scratch/**` to `exempt` in `.governance/config.json`. |
 | An agent asks you to run `adopt.py` in a terminal | Type `/adopt` instead. |
