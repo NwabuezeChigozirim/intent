@@ -18,7 +18,7 @@ NAMED = re.compile(r"`([a-z][a-z0-9-]+)` skill\b|skills?[,:]? `([a-z][a-z0-9-]+)
 SLASH = re.compile(r"`/([a-z][a-z0-9-]+)`")
 LINK = re.compile(r"\]\((?!https?:|#|mailto:)([^)#\s]+)(?:#[^)]*)?\)")
 # Skills of the governance plugin, and harness built-in commands.
-EXTERNAL = {"govern", "correct", "govern-help", "adopt", "clear", "compact"}
+EXTERNAL = {"govern", "correct", "govern-help", "adopt", "approve", "clear", "compact"}
 # Backticked paths that look like slash commands.
 PATHS = {"tmp", "settings"}
 DROPPED = ("ask-matt", "setup-matt-pocock-skills", "Skill tool", "code-review", "/tdd", "/retro", "diagnosing-bugs", "/teach")

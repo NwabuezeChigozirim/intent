@@ -51,7 +51,7 @@ A question paper cannot settle (does this state model feel right, what should th
 
 ## Build a ticket
 
-- [`/implement <ticket>`](../implement/SKILL.md) in a fresh chat: the ticket becomes one `/govern` stage. Its acceptance criteria become the stage's frozen checks, the owner runs the freeze command once, and the stage closes when every check passes on the final code.
+- [`/implement <ticket>`](../implement/SKILL.md) in a fresh chat: the ticket becomes one `/govern` stage. Its acceptance criteria become the stage's frozen checks, the owner types `/approve` once, and the stage closes when every check passes on the final code.
 - [`/implement-spec`](../implement-spec/SKILL.md) works the whole ticket graph with parallel subagents on one integration branch. The owner still freezes each stage; the skill batches the freeze commands per round.
 
 Questions about stages, checks, receipts or rules belong to the governance plugin: point the user to `/govern-help`.
